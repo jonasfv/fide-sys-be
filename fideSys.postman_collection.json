@@ -1,0 +1,332 @@
+{
+	"info": {
+		"_postman_id": "f8df4d42-6e38-4147-a167-6a65b9e44d30",
+		"name": "fideSys",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26188351"
+	},
+	"item": [
+		{
+			"name": "getSinfiltro",
+			"item": [
+				{
+					"name": "todosLosClientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fide-sys-be/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fide-sys-be",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "todosLosDetalles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fide-sys-be/uso-cabecera/paginado?filtros=   %7B%0A%20%20%20%20%20%20%20%20%22cliente%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22nombre%22%3A%20%22Jona%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%22conceptoUso%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22descripcion%22%3A%20%22VALE%20DE%20COMPRAS%22%2C%20%20%20%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D&cantidad=5&pagina=1&orderBy=id&orderDir=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fide-sys-be",
+								"uso-cabecera",
+								"paginado"
+							],
+							"query": [
+								{
+									"key": "filtros",
+									"value": "   %7B%0A%20%20%20%20%20%20%20%20%22cliente%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22nombre%22%3A%20%22Jona%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%22conceptoUso%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22descripcion%22%3A%20%22VALE%20DE%20COMPRAS%22%2C%20%20%20%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D"
+								},
+								{
+									"key": "cantidad",
+									"value": "5"
+								},
+								{
+									"key": "pagina",
+									"value": "1"
+								},
+								{
+									"key": "orderBy",
+									"value": "id"
+								},
+								{
+									"key": "orderDir",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "todosCabecera",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fide-sys-be/uso-cabecera",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fide-sys-be",
+								"uso-cabecera"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "todosBolsaUso",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fide-sys-be/bolsa-punto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fide-sys-be",
+								"bolsa-punto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "todosConceptoUso",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fide-sys-be/concepto-uso",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fide-sys-be",
+								"concepto-uso"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ClientePuntoXDias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fide-sys-be/clientes/cliente-puntos?numDias=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fide-sys-be",
+						"clientes",
+						"cliente-puntos"
+					],
+					"query": [
+						{
+							"key": "numDias",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calcularMonto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fide-sys-be/bolsa-punto/calcular-monto?monto=200000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fide-sys-be",
+						"bolsa-punto",
+						"calcular-monto"
+					],
+					"query": [
+						{
+							"key": "monto",
+							"value": "200000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ClientesConFiltro",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fide-sys-be/clientes/paginado?cantidad=5&filtros=%7B%22nombre%22%3A%20%22Jona%22%7D&pagina=1&orderBy=id&orderDir=asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fide-sys-be",
+						"clientes",
+						"paginado"
+					],
+					"query": [
+						{
+							"key": "filtros",
+							"value": "%7B%22fechaNacimiento%22%3A%20%221980-01-01T03%3A00%3A00.000Z%22%7D",
+							"disabled": true
+						},
+						{
+							"key": "cantidad",
+							"value": "5"
+						},
+						{
+							"key": "filtros",
+							"value": "%7B%22nombre%22%3A%20%22Jona%22%7D",
+							"description": "aproximacion   -- para el filtro tiene que ir codificao"
+						},
+						{
+							"key": "pagina",
+							"value": "1"
+						},
+						{
+							"key": "orderBy",
+							"value": "id"
+						},
+						{
+							"key": "orderDir",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GuardarCliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Armando\",\r\n  \"apeliio\": \"Fleitas\",\r\n  \"numeroDoc\": \"12345678\",\r\n  \"email\": \"jona.perez@example.com\",\r\n  \"telefono\": \"1234567890\",\r\n  \"fechaNacimiento\": \"1980-01-01\",\r\n  \"tipoDocumento\":\"CI\",\r\n  \"nacionalidad\": {\r\n    \"id\": 1\r\n  }\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/fide-sys-be/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fide-sys-be",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "guardarBolsaPuntos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fide-sys-be/bolsa-punto/savePuntos?clienteId=1&montoOperacion=200000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fide-sys-be",
+						"bolsa-punto",
+						"savePuntos"
+					],
+					"query": [
+						{
+							"key": "clienteId",
+							"value": "1"
+						},
+						{
+							"key": "montoOperacion",
+							"value": "200000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "guardarUsoDePuntos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fide-sys-be/uso-cabecera/save-uso?clienteId=1&conceptoId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fide-sys-be",
+						"uso-cabecera",
+						"save-uso"
+					],
+					"query": [
+						{
+							"key": "clienteId",
+							"value": "1"
+						},
+						{
+							"key": "conceptoId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
