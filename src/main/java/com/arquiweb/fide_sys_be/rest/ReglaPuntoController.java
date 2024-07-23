@@ -12,7 +12,7 @@ import com.arquiweb.fide_sys_be.service.ReglaPuntoService;
 public class ReglaPuntoController extends BaseRest<ReglaPunto>{
 
     private final ReglaPuntoService reglaPuntoService;
-
+ 
     public ReglaPuntoController(ReglaPuntoService reglaPuntoService) {
         this.reglaPuntoService = reglaPuntoService;
     }

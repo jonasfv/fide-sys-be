@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.arquiweb.fide_sys_be.constant.WhereOperationConstant;
@@ -17,6 +18,8 @@ import com.arquiweb.fide_sys_be.entity.UsoCabecera;
 import com.arquiweb.fide_sys_be.entity.UsoDTO;
 import com.arquiweb.fide_sys_be.entity.UsoDetalle;
 import com.arquiweb.fide_sys_be.repository.UsoCabeceraRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @Service
 public class UsoCabeceraService extends BaseService<UsoCabecera> {
@@ -64,7 +67,7 @@ public class UsoCabeceraService extends BaseService<UsoCabecera> {
 
         ConceptoUso conceptoUso = conceptoUsoService.getById(conceptoId);
 
-        List<BolsaPunto> listaBolsa = bolsaPuntoService.findBolsaCliente(clienteId);
+        List<BolsaPunto> listaBolsa = bolsaPuntoService.findByClienteId(clienteId);
 
         int aux = 0;
         int puntosRestantes = 0;
@@ -117,4 +120,19 @@ public class UsoCabeceraService extends BaseService<UsoCabecera> {
         return uso;
     }
 
+    public Page<UsoCabecera> getUsoCabecerasByClienteId(Long clienteId, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return usoCabeceraRepository.findByClienteId(clienteId, pageable);
+    }
+
+    public Page<UsoCabecera> getUsoCabecerasByConceptoUsoId(Long conceptoUsoId, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return usoCabeceraRepository.findByConceptoUsoId(conceptoUsoId, pageable);
+    }
+
+
+    public Page<UsoCabecera> getUsoCabecerasByFechaTransaccion(LocalDate fechaTransaccion, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return usoCabeceraRepository.findByFechaTransaccion(fechaTransaccion, pageable);
+    }
 }

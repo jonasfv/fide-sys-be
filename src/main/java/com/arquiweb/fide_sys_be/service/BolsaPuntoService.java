@@ -14,6 +14,8 @@ import com.arquiweb.fide_sys_be.entity.Cliente;
 import com.arquiweb.fide_sys_be.entity.ParametrizacionVecimientoPunto;
 import com.arquiweb.fide_sys_be.entity.ReglaPunto;
 import com.arquiweb.fide_sys_be.repository.BolsaPuntoRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @Service
 public class BolsaPuntoService extends BaseService<BolsaPunto> {
@@ -60,7 +62,7 @@ public class BolsaPuntoService extends BaseService<BolsaPunto> {
         for (ReglaPunto reglaPunto : listaRegla) {
 
             if (monto >= reglaPunto.getLimiteInferior() && monto <= reglaPunto.getLimiteSuperior()) {
-               
+
                 double puntosDecimales = monto / reglaPunto.getMontoPorPunto();
                 LOGGER.info(puntosDecimales);
                 puntos = (int) Math.round(puntosDecimales);
@@ -101,30 +103,34 @@ public class BolsaPuntoService extends BaseService<BolsaPunto> {
         bolsaPunto.setFechaAsignacion(date);
         bolsaPunto.setFechaCaducidad(date.plusDays(dias));
 
-        
         return bolsaPuntoRepository.save(bolsaPunto);
     }
 
-
-
-    public List<BolsaPunto> findBolsaCliente(Long id){
-
-       return  bolsaPuntoRepository.findByClienteId(id);
+    public List<BolsaPunto> findByClienteId(Long clienteId) {
+        return bolsaPuntoRepository.findClienteId(clienteId);
     }
 
-    public List<BolsaPunto> findBolsaCaducada(){
+    public List<BolsaPunto> findBolsaCaducada() {
 
         LocalDate hoy = LocalDate.now();
         List<BolsaPunto> listaBolsa = bolsaPuntoRepository.findByFechaCaducidad(hoy);
 
-        return  listaBolsa;
-     }
+        return listaBolsa;
+    }
 
-     public List<BolsaPunto> findBolsaDias(int dias){
+    public List<BolsaPunto> findBolsaDias(int dias) {
 
         LocalDate fecha = LocalDate.now().minusDays(dias);
         List<BolsaPunto> listaBolsa = bolsaPuntoRepository.findByFechaCaducidad(fecha);
 
-        return  listaBolsa;
-     }
+        return listaBolsa;
+    }
+
+    public Page<BolsaPunto> findByClienteId(Long clienteId, Pageable pageable) {
+        return bolsaPuntoRepository.findByClienteId(clienteId, pageable);
+    }
+
+    public Page<BolsaPunto> findByPuntajeAsignadoBetween(int minPuntaje, int maxPuntaje , Pageable pageable ) {
+        return bolsaPuntoRepository.findByPuntajeAsignadoBetween(minPuntaje, maxPuntaje,pageable);
+    }
 }

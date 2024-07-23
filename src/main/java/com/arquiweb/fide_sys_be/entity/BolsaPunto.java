@@ -1,9 +1,6 @@
 package com.arquiweb.fide_sys_be.entity;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.time.LocalDate;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -16,7 +13,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "bolsa_puntos")
-public class BolsaPunto {
+public class    BolsaPunto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -35,7 +35,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/fide-sys-be/uso-cabecera/paginado?filtros=   %7B%0A%20%20%20%20%20%20%20%20%22cliente%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22nombre%22%3A%20%22Jona%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%22conceptoUso%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22descripcion%22%3A%20%22VALE%20DE%20COMPRAS%22%2C%20%20%20%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D&cantidad=5&pagina=1&orderBy=id&orderDir=asc",
+							"raw": "http://localhost:8080/fide-sys-be/uso-cabecera/paginado?filtros=  %7B%0A%20%20%20%20%20%20%20%20%22cliente%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22nombre%22%3A%20%22Jona%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%22conceptoUso%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22descripcion%22%3A%20%22VALE%20DE%20COMPRAS%22%2C%20%20%20%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D&cantidad=5&pagina=1&orderBy=id&orderDir=asc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -49,7 +49,7 @@
 							"query": [
 								{
 									"key": "filtros",
-									"value": "   %7B%0A%20%20%20%20%20%20%20%20%22cliente%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22nombre%22%3A%20%22Jona%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%22conceptoUso%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22descripcion%22%3A%20%22VALE%20DE%20COMPRAS%22%2C%20%20%20%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D"
+									"value": "  %7B%0A%20%20%20%20%20%20%20%20%22cliente%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22nombre%22%3A%20%22Jona%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%22conceptoUso%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22descripcion%22%3A%20%22VALE%20DE%20COMPRAS%22%2C%20%20%20%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D"
 								},
 								{
 									"key": "cantidad",
@@ -131,6 +131,116 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "bolsa por cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fide-sys-be/bolsa-punto/cliente/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fide-sys-be",
+								"bolsa-punto",
+								"cliente",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rango de puntos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fide-sys-be/bolsa-punto/rango-puntos?minPuntaje=1&maxPuntaje=20&orderBy=id&orderDir=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fide-sys-be",
+								"bolsa-punto",
+								"rango-puntos"
+							],
+							"query": [
+								{
+									"key": "minPuntaje",
+									"value": "1"
+								},
+								{
+									"key": "maxPuntaje",
+									"value": "20"
+								},
+								{
+									"key": "orderBy",
+									"value": "id"
+								},
+								{
+									"key": "orderDir",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usoporcliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fide-sys-be/uso-cabecera/cliente/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fide-sys-be",
+								"uso-cabecera",
+								"cliente",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "por concepto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fide-sys-be/uso-cabecera/fecha?fechaTransaccion=2024-07-22",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fide-sys-be",
+								"uso-cabecera",
+								"fecha"
+							],
+							"query": [
+								{
+									"key": "fechaTransaccion",
+									"value": "2024-07-22"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -194,7 +304,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/fide-sys-be/clientes/paginado?cantidad=5&filtros=%7B%22nombre%22%3A%20%22Jona%22%7D&pagina=1&orderBy=id&orderDir=asc",
+					"raw": "http://localhost:8080/fide-sys-be/bolsa-punto/paginado?cantidad=5&pagina=1&orderBy=id&orderDir=asc",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -202,7 +312,7 @@
 					"port": "8080",
 					"path": [
 						"fide-sys-be",
-						"clientes",
+						"bolsa-punto",
 						"paginado"
 					],
 					"query": [
@@ -217,8 +327,9 @@
 						},
 						{
 							"key": "filtros",
-							"value": "%7B%22nombre%22%3A%20%22Jona%22%7D",
-							"description": "aproximacion   -- para el filtro tiene que ir codificao"
+							"value": "%7B%7D",
+							"description": "aproximacion   -- para el filtro tiene que ir codificao",
+							"disabled": true
 						},
 						{
 							"key": "pagina",
@@ -272,7 +383,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/fide-sys-be/bolsa-punto/savePuntos?clienteId=1&montoOperacion=200000",
+					"raw": "http://localhost:8080/fide-sys-be/bolsa-punto/save-puntos?clienteId=1&montoOperacion=200000",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -281,7 +392,7 @@
 					"path": [
 						"fide-sys-be",
 						"bolsa-punto",
-						"savePuntos"
+						"save-puntos"
 					],
 					"query": [
 						{
@@ -303,7 +414,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/fide-sys-be/uso-cabecera/save-uso?clienteId=1&conceptoId=1",
+					"raw": "http://localhost:8080/fide-sys-be/uso-cabecera/save-uso?clienteId=11&conceptoId=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -317,7 +428,7 @@
 					"query": [
 						{
 							"key": "clienteId",
-							"value": "1"
+							"value": "11"
 						},
 						{
 							"key": "conceptoId",
@@ -325,6 +436,14 @@
 						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "paginate",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}

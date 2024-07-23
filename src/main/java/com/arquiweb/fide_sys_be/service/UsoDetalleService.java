@@ -1,6 +1,7 @@
 package com.arquiweb.fide_sys_be.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,15 +11,13 @@ import com.arquiweb.fide_sys_be.entity.UsoDetalle;
 import com.arquiweb.fide_sys_be.repository.UsoDetalleRepository;
 
 @Service
-public class UsoDetalleService extends BaseService<UsoDetalle>{
-
-
+public class UsoDetalleService extends BaseService<UsoDetalle> {
 
     @Autowired
     UsoDetalleRepository usoDetalleRepository;
 
     @Override
-    public UsoDetalleRepository getRepository(){
+    public UsoDetalleRepository getRepository() {
         return usoDetalleRepository;
     }
 
@@ -35,5 +34,9 @@ public class UsoDetalleService extends BaseService<UsoDetalle>{
         operation.put("apellido", WhereOperationConstant.FULL_LIKE);
 
         return operation;
+    }
+
+    public List<UsoDetalle> findUsoDetallesByCabeceraId(Long cabeceraId) {
+        return usoDetalleRepository.findByCabecera_Id(cabeceraId);
     }
 }
