@@ -69,7 +69,12 @@ public class UsoCabeceraService extends BaseService<UsoCabecera> {
 
         List<BolsaPunto> listaBolsa = bolsaPuntoService.findByClienteId(clienteId);
 
-        int aux = 0;
+        if(!validarPuntos(clientPunto,conceptoUso,listaBolsa)){
+
+            return null;
+        }
+
+        //int aux = 0;
         int puntosRestantes = 0;
 
         UsoCabecera usoCabecera = new UsoCabecera();
@@ -109,8 +114,7 @@ public class UsoCabeceraService extends BaseService<UsoCabecera> {
 
             bolsaPuntoService.update(bolsaPunto);
         }
-
-        if (listaDetalle != null) {
+         if (listaDetalle != null) {
             uso.setDetalles(listaDetalle);
             for (UsoDetalle usoDetalle : listaDetalle) {
                 usoDetalle.setCabecera(response);
@@ -119,6 +123,22 @@ public class UsoCabeceraService extends BaseService<UsoCabecera> {
         }
         return uso;
     }
+
+    public Boolean validarPuntos(Cliente clientPunto, ConceptoUso conceptoUso, List<BolsaPunto> listaBolsa) {
+        int bolsaSaldo = 0;
+        
+        if (listaBolsa.size() == 0) {
+            return false;
+        }
+        for (BolsaPunto bolsa : listaBolsa) {
+            bolsaSaldo += bolsa.getSaldo();
+        }
+        
+
+        return bolsaSaldo >= conceptoUso.getPuntos();
+    }
+    
+
 
     public Page<UsoCabecera> getUsoCabecerasByClienteId(Long clienteId, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);

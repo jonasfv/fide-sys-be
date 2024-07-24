@@ -42,6 +42,10 @@ public class UsoCabeceraController extends BaseRest<UsoCabecera>{
         
         UsoDTO  uso = usoCabeceraService.generarUso(clienteId, conceptoId);
         
+        if(uso == null){
+
+            return new ResponseEntity<>(uso,HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<UsoDTO>(uso, HttpStatus.CREATED);
     }
 
